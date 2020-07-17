@@ -1,3 +1,9 @@
+desktop-base (10.0.2+loongbian1) UNRELEASED; urgency=medium
+
+  * [Loongbian] Add Loongbian plymouth theme
+
+ -- root <root@lsdev>  Fri, 17 Jul 2020 15:40:42 +0800
+
 desktop-base (10.0.2) unstable; urgency=medium
 
   * Remove text version of plymouth theme
