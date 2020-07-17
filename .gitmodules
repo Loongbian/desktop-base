@@ -1,0 +1,3 @@
+[submodule "loongbian-theme/plymouth"]
+	path = loongbian-theme/plymouth
+	url = https://github.com/Loongbian/loongbian-plymouth-theme

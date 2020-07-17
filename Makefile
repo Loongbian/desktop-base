@@ -259,4 +259,11 @@ install-local:
 	install -d $(DESTDIR)/usr/share/wallpapers
 	cd $(DESTDIR)/usr/share/wallpapers && ln -s /usr/share/desktop-base/moonlight-theme/lockscreen MoonlightLockScreen
 
+	# Loongbian theme
+	### Plymouth theme
+	install -d $(DESTDIR)/usr/share/plymouth/themes/loongbian
+	cp -r loongbian-theme/plymouth/* $(DESTDIR)/usr/share/plymouth/themes/loongbian
+	install -d $(DESTDIR)/usr/share/desktop-base/loongbian-theme
+	cd $(DESTDIR)/usr/share/desktop-base/loongbian-theme && ln -s /usr/share/plymouth/themes/loongbian plymouth
+
 include Makefile.inc
