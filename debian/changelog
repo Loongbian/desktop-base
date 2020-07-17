@@ -1,4 +1,4 @@
-desktop-base (10.0.2+loongbian1) UNRELEASED; urgency=medium
+desktop-base (10.0.2+loongbian1) unstable; urgency=medium
 
   * [Loongbian] Add Loongbian plymouth theme
 
