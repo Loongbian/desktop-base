@@ -66,6 +66,7 @@ if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] || [ "$1" = "abort-remov
             desktop-theme \
             /usr/share/desktop-base/$theme-theme $priority
     done << EOF
+loongbian 60
 futureprototype 50
 moonlight 40
 softwaves 40
@@ -77,11 +78,18 @@ EOF
 
     # Use active theme as highest priority for background
     active_background=/usr/share/desktop-base/active-theme/wallpaper/contents/images/1920x1080.svg
+    active_background_png=/usr/share/desktop-base/active-theme/wallpaper/contents/images/1920x1080.png
+
     if [ -e ${active_background} ]; then
         update-alternatives --install \
             /usr/share/images/desktop-base/desktop-background \
             desktop-background ${active_background} 70
+    elif [ -e ${active_background_png} ]; then
+        update-alternatives --install \
+            /usr/share/images/desktop-base/desktop-background \
+            desktop-background ${active_background_png} 70
     fi
+
     # Alternatives for the background in theme packages
     while read theme filename priority; do
         update-alternatives --install \
@@ -89,8 +97,9 @@ EOF
             desktop-background \
             /usr/share/desktop-base/$theme-theme/wallpaper/contents/images/$filename $priority
     done << EOF
-futureprototype 1920x1080.svg 65
-moonlight 1920x1080.svg 65
+loongbian 1920x1080.png 65
+futureprototype 1920x1080.svg 60
+moonlight 1920x1080.svg 60
 softwaves 1024x768.svg 50
 softwaves 1280x720.svg 50
 softwaves 1280x800.svg 50
@@ -137,6 +146,7 @@ EOF
             desktop-background.xml \
             /usr/share/desktop-base/$theme-theme/wallpaper/gnome-background.xml $priority
     done << EOF
+loongbian 45
 futureprototype 40
 moonlight 30
 softwaves 30
@@ -162,6 +172,7 @@ EOF
             desktop-lockscreen.xml \
             /usr/share/desktop-base/$theme-theme/lockscreen/gnome-background.xml $priority
     done << EOF
+loongbian 45
 futureprototype 40
 moonlight 30
 softwaves 30
@@ -185,6 +196,7 @@ EOF
             desktop-plasma5-wallpaper \
             /usr/share/desktop-base/$theme-theme/wallpaper $priority
     done << EOF
+loongbian 45
 futureprototype 40
 moonlight 30
 softwaves 30
@@ -197,16 +209,23 @@ EOF
     # Login theme
     # Highest priority for active theme
     active_login_background=/usr/share/desktop-base/active-theme/login/background.svg
+    active_login_background_png=/usr/share/desktop-base/active-theme/login/background.png
+
     if [ -e ${active_login_background} ]; then
         update-alternatives --install /usr/share/images/desktop-base/login-background.svg \
             desktop-login-background ${active_login_background} 50
+    elif [ -e ${active_login_background_png} ]; then
+        update-alternatives --install /usr/share/images/desktop-base/login-background.svg \
+            desktop-login-background ${active_login_background_png} 50 # fake svg
     fi
+
     # Alternatives for theme packages
     while read theme background priority; do
         update-alternatives --install /usr/share/images/desktop-base/login-background.svg \
             desktop-login-background \
             /usr/share/desktop-base/$theme-theme/login/$background $priority
     done << EOF
+loongbian background.png 45
 futureprototype background.svg 40
 moonlight background.svg 40
 softwaves background.svg 30

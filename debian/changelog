@@ -1,8 +1,8 @@
 desktop-base (10.0.2+loongbian1) unstable; urgency=medium
 
-  * [Loongbian] Add Loongbian plymouth theme
+  * [Loongbian] Add Loongbian theme
 
- -- root <root@lsdev>  Fri, 17 Jul 2020 15:40:42 +0800
+ -- Loongbian Maintainers <loongbian@loongson.cn>  Fri, 17 Jul 2020 15:40:42 +0800
 
 desktop-base (10.0.2) unstable; urgency=medium
 

@@ -262,8 +262,29 @@ install-local:
 	# Loongbian theme
 	### Plymouth theme
 	install -d $(DESTDIR)/usr/share/plymouth/themes/loongbian
-	cp -rf loongbian-theme/plymouth/* $(DESTDIR)/usr/share/plymouth/themes/loongbian
+	cp -rf loongbian-theme/plymouth/loongbian.plymouth loongbian-theme/plymouth/loongbian.script loongbian-theme/plymouth/img $(DESTDIR)/usr/share/plymouth/themes/loongbian
 	install -d $(DESTDIR)/usr/share/desktop-base/loongbian-theme
 	cd $(DESTDIR)/usr/share/desktop-base/loongbian-theme && ln -s /usr/share/plymouth/themes/loongbian plymouth
+
+	### Login background
+	install -d $(DESTDIR)/usr/share/desktop-base/loongbian-theme/login
+	$(INSTALL_DATA) $(wildcard loongbian-theme/login/*) $(DESTDIR)/usr/share/desktop-base/loongbian-theme/login
+
+	### Wallpapers
+	install -d $(DESTDIR)/usr/share/desktop-base/loongbian-theme/wallpaper/contents/images
+	$(INSTALL_DATA) loongbian-theme/wallpaper/metadata.desktop $(DESTDIR)/usr/share/desktop-base/loongbian-theme/wallpaper
+	$(INSTALL_DATA) loongbian-theme/wallpaper/gnome-background.xml $(DESTDIR)/usr/share/desktop-base/loongbian-theme/wallpaper
+	$(INSTALL_DATA) $(wildcard loongbian-theme/wallpaper/contents/images/*) $(DESTDIR)/usr/share/desktop-base/loongbian-theme/wallpaper/contents/images/
+	$(INSTALL_DATA) loongbian-theme/gnome-wp-list.xml $(DESTDIR)/usr/share/gnome-background-properties/debian-loongbian.xml
+
+	### Wallpaper symlink for KDE
+	install -d $(DESTDIR)/usr/share/wallpapers
+	cd $(DESTDIR)/usr/share/wallpapers && ln -s /usr/share/desktop-base/loongbian-theme/wallpaper loongbian
+
+	### Lockscreen is using the same image as wallpaper
+	install -d $(DESTDIR)/usr/share/desktop-base/loongbian-theme/lockscreen/contents/images
+	$(INSTALL_DATA) loongbian-theme/wallpaper/metadata.desktop $(DESTDIR)/usr/share/desktop-base/loongbian-theme/lockscreen
+	$(INSTALL_DATA) loongbian-theme/wallpaper/gnome-background.xml $(DESTDIR)/usr/share/desktop-base/loongbian-theme/lockscreen
+	$(INSTALL_DATA) $(wildcard loongbian-theme/wallpaper/contents/images/*) $(DESTDIR)/usr/share/desktop-base/loongbian-theme/lockscreen/contents/images/
 
 include Makefile.inc

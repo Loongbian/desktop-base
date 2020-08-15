@@ -1,8 +1,10 @@
 Source: desktop-base
 Section: x11
 Priority: optional
-Maintainer: Debian Desktop Team <debian-desktop@lists.debian.org>
-Uploaders: Yves-Alexis Perez <corsac@debian.org>,
+Maintainer: Loongbian Maintainers <loongbian@loongson.cn>
+XSBC-Original-Maintainer: Debian Desktop Team <debian-desktop@lists.debian.org>
+Uploaders: Loongbian Maintainers <loongbian@loongson.cn>
+           Yves-Alexis Perez <corsac@debian.org>,
            Josselin Mouette <joss@debian.org>,
            Paul Tagliamonte <paultag@debian.org>,
            Aurélien COUDERC <coucouf@debian.org>,
@@ -14,9 +16,9 @@ Build-Depends: debhelper (>= 11),
                fonts-quicksand,
 Rules-Requires-Root: no
 Standards-Version: 4.3.0
-Homepage: https://www.debian.org/devel/debian-desktop/
-Vcs-Browser: https://salsa.debian.org/debian-desktop-team/desktop-base
-Vcs-Git: https://salsa.debian.org/debian-desktop-team/desktop-base.git
+Homepage: https://github.com/Loongbian/desktop-base
+Vcs-Browser: https://github.com/Loongbian/desktop-base
+Vcs-Git: https://github.com/Loongbian/desktop-base.git
 
 Package: desktop-base
 Architecture: all
